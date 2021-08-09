@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Music Player</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="intro-container">
+            <div class="intro">
+                <h1>Zen Lofi Chillhop</h1>
+                <p>Chill-out is a loosely defined form of popular music characterized by slow tempos and relaxed moods. Identified as a modern type of easy listening.</p>
+            </div>
+
+    <div class="playlists">
+        <h2>Chillhop Playlist</h2>
+        <ul class="list">
+            <li>Heaven</li>
+            <li>Love is Gone</li>
+            <li>MOMENT</li>
+            <li>Mood</li>
+            <li>You Broke me first</li>
+        </ul>
+    </div>
+    </div>
+
+    <div id="music-container" class="music-container">
+        <div class="play-box">
+        <h1>Best Music Player</h1>
+        <div id="circlebg" class="circle">
+            <div id="circlesm" class="circle2"><img src="img/Heaven.jpg" id="cover" class="img"/></div>
+        </div>
+        
+    
+        <div class="music-info">
+            <h4 id="song-title">Smaple Audio</h4>
+            <audio src="music/Heaven.mp3" id="audio"></audio>
+            <div id="progress-container" class="progress-container">
+                <div id="progress" class="progress"></div>
+            </div>
+        </div>
+            <div id="controls" class="controls">
+                <img src="img/backward-button.png" id="backwardbtn" class="button" alt="backward-button"/>
+                <img id="play-stop" class="button"/>
+                <img src="img/fast-forward.png" id="forwardbtn" class="button" alt="forward-button"/>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>
