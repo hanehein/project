@@ -1,0 +1,204 @@
+:root {
+  --primary-color: #0357a6;
+  --secondary-color: #b50486;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  transition-duration: 3s;
+}
+
+/* js ကနေ body ထဲကို .shownav ၀င်လာခဲ့ရင် navbar ကို body ဘေးကို 200px တိုးပြီးပေါ်လာအောင် */
+body.shownav {
+  transform: translate(200px);
+}
+
+nav {
+  width: 200px;
+  /* viewport-height(vh) */
+  height: 100vh;
+  background: var(--primary-color);
+  color: #fff;
+  border-right: 2px solid rgba(200, 200, 200, 0.1);
+
+  /* Nav position ko main page mhr nay yar ma u zay chin tae a twat position="absolute" ko use*/
+  position: absolute;
+  /* position: fixed; >> d lo pay ll ya */
+  top: 0;
+  left: 0;
+  /* navigation bar ကို CSS မှာဖျောက်ထားခဲ့ပြီး js နဲ့လှမ်းခေါ်မို့ */
+  transform: translateX(-100%);
+}
+
+nav .logo img {
+  width: 75px;
+  height: 75px;
+  /* border-radius က logo ကို အ၀ိုင်းပေးချင်လို့  50% or 100%*/
+  border-radius: 50%;
+}
+
+nav .logo {
+  /* (top&buttom) (left & right) */
+  padding: 30px 0;
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* bay ka bullet twy phyote dr */
+}
+
+nav ul li {
+  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+  padding: 20px;
+}
+
+nav ul li:first-of-type {
+  border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+/* absolue a tag ကြောင့် စာလုံးတွေက link ပုံစံတွေဖြစ်နေတာကြောင့် */
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* mouse သွားတင်ရင် pointer underline ဖြစ်အောင် hover use */
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 130%;
+  padding: 40px 15px;
+  text-align: center;
+  position: relative;
+}
+
+.toggle {
+  background-color: rgba(0, 0, 0, 0.3);
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.toogle:focus {
+  outline: 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  /* top&button  left&right */
+  margin: 30px 0;
+}
+
+/* attribute selector */
+button,
+input[type="submit"] {
+  background: var(--secondary-color);
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.btn {
+  font-size: 20px;
+  padding: 12px 30px;
+  border: 0;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+/* ဘေးမှာနေရာ လွတ်ရှိအောင်*/
+.container {
+  width: 1000px;
+  /* mobile-view မှာအဆင်ပြေအောင်*/
+  max-width: 100%;
+  /* top&button  left&right */
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* ခနေဖျောက်ထားတာ javascript ရောက်မှပြန်ခေါ်ဖို့ */
+  display: none;
+}
+
+.modal {
+  width: 500px;
+  background-color: #fff;
+  /* ထောင့်လုံးအောင်လုပ်တာ */
+  border-radius: 5px;
+  /* ver hoz blur color */
+  box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.8);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  /* div တစ်ခုခံနေလို့ modal header က border မလုံးလို့ */
+  overflow: hidden;
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 25px;
+  border: 0;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 15px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-form .form-group {
+  /* top&bottom left&right */
+  margin: 15px 0;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-form .form-input {
+  width: 100%;
+  padding: 10px;
+}
+
+.modal-container.showmodal {
+  display: block;
+}
