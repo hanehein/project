@@ -1,0 +1,93 @@
+/* Universal Selector(*) လေးနဲ့ ဘယ်ညာညှိ့ဖို့ box-sizing သတ်မှတ် */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: url("../img/newyear.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* left, top */
+  background-position: center center;
+  color: #fff;
+
+  height: 100vh;
+  /*view port height -- ကြိုက်တဲ့ devices မှာ height အပြည့်မြင်ရအောင် */
+  display: flex;
+  /*horizontal center*/
+  justify-content: center;
+  /*vertical center*/
+  align-items: center;
+  flex-direction: column;
+
+  /* 1 page ထဲမို့လို့ scroll-bar ဆွဲမရအောင်လုပ် */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* body ပေါ်မှာ 2022 ပေါ်တာ မှိန်မှိန် လေးပေါ်ချင်လို့ အမဲ ကို opacity နည်းနည်းနဲ့ထည့် */
+body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* absolute ဆိုတာ အပေါ် layer ကိုရွေ့ တာ */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* အပေါ် layer မှာရောက် လို့ z-index နဲ့ချထား */
+  z-index: -1;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.year {
+  font-size: 200px;
+  opacity: 0.2;
+
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+
+  z-index: -1;
+}
+
+.countdown {
+  /* display: flex; ကိုဖျောက်ထားပြီး javascript နဲ့ loading gif လေးပေါ်ပြီးမှ ပြန်ခေါ်ဖို့*/
+  display: none;
+  transform: scale(2);
+}
+
+.time {
+  /* display: flex နဲ့ center ချနည်းတစ်မျိုးပဲ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.time h2 {
+  /* top&button / left&right */
+  margin: 0 5px;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 45px;
+  }
+  .time {
+    margin: 5px;
+  }
+  .time h2 {
+    font-size: 12px;
+    margin: 0;
+  }
+  .time small {
+    font-size: 10px;
+  }
+}

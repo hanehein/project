@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Audiowide", cursive;
+  background: linear-gradient(
+    0deg,
+    rgba(253, 252, 252, 0.5) 23.8%,
+    rgba(248, 197, 197, 1) 98%
+  );
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 0;
+  overflow: hidden;
+  /* scroll bar swal sa yar ma lo lox */
+}
+
+.music-container {
+  background-color: #fff;
+  /* top&buttom, left&right */
+  padding: 20px 40px;
+  border-radius: 15px;
+  /*  horizon, vartical, blur , color */
+  box-shadow: 0 20px 20px rgba(252, 169, 169, 0.6);
+  margin: 100px 0;
+
+  display: flex;
+  /* default ka 0 pay mae thi ag lox pay htr dr, out ka music-info mhr -1 pay htr */
+  z-index: 0;
+
+  position: relative;
+}
+
+.img-container {
+  width: 110px;
+
+  position: relative;
+}
+
+.img-container img {
+  width: inherit;
+  /* 110px pay ll ya */
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* animation လည်ချင်တဲ့ image မှာလာထည့် */
+  animation-name: myani;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+.img-container::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Music disc ကို rotate ဖြစ်စေ ချင်လို့ */
+@keyframes myani {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-btn {
+  background-color: #fff;
+  color: silver;
+  border: 0;
+  font-size: 20px;
+  padding: 15px;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.action-btn.action-btn-big {
+  color: grey;
+  font-size: 30px;
+}
+
+.action-btn:focus {
+  outline: none;
+}
+
+.music-info {
+  width: calc(100% - 40px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+
+  position: absolute;
+  top: 0;
+  left: 20px;
+  /* top, bottom, right, left */
+  padding: 1px 1px 10px 150px;
+
+  transform: translateY(0%);
+  opacity: 0;
+  /* opcity pyout htr thaw ll a paw layer htet nay dr ko ya ag lote */
+  z-index: -1;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background-color: #fff;
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: tomato;
+  border-radius: 5px;
+}
